@@ -1,73 +1,78 @@
-# React + TypeScript + Vite
+# Rohan's Portfolio 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A futuristic, cyberpunk-themed portfolio website built with modern web technologies. This project showcases my skills, experience, and projects in a unique, immersive interface.
 
-Currently, two official plugins are available:
+![Cyberpunk Theme](https://img.shields.io/badge/Theme-Cyberpunk-00f0ff?style=for-the-badge&logo=cyberpunk)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Video](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- **Immersive Cyberpunk Design**: Custom boot screens, scanline effects, and dynamic cyber backgrounds.
+- **Interactive UI**: Powered by Framer Motion for smooth animations and transitions.
+- **Responsive Layout**: Fully optimized for desktop and mobile experiences.
+- **Modern Tech Stack**: Built with React 19, Vite, and Tailwind CSS.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- **Frontend**: React, TypeScript, Vite
+- **Styling**: Tailwind CSS, PostCSS
+- **Animation**: Framer Motion
+- **Icons**: Lucide React
+- **Routing**: React Router DOM
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Make sure you have Node.js installed on your machine.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Rohankhaire/my-portfolio.git
+   cd my-portfolio
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Build for production**
+   ```bash
+   npm run build
+   ```
+
+## 📂 Project Structure
+
+```
+src/
+├── components/     # Reusable UI components (Navbar, Footer, Cyber elements)
+├── pages/          # Main application pages (Home, Experience, Projects, etc.)
+├── App.tsx         # Main application entry point with routing
+├── index.css       # Global styles and Tailwind directives
+└── main.tsx        # React root rendering
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Deployment
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+This project handles routing for SPA (Single Page Application) platforms.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Vercel**: Includes `vercel.json` for proper rewrites.
+- **GitHub Pages**: Includes `gh-pages` deployment scripts.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+*Designed and developed by Rohan Khaire.*
