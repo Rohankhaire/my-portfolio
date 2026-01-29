@@ -5,6 +5,12 @@ import ProjectCard from '../components/ProjectCard';
 const Projects: React.FC = () => {
     const projects = [
         {
+            title: 'Personal Portfolio',
+            description: 'A high-performance, responsive portfolio website built with modern web technologies. Features a futuristic cyberpunk aesthetic, fluid Framer Motion animations, and a fully mobile-optimized interface.',
+            techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vite'],
+            githubUrl: 'https://github.com/Rohankhaire/my-portfolio'
+        },
+        {
             title: 'ATM Simulator System',
             description: 'Desktop-based Java application simulating real banking workflows. Implemented account lifecycle, transaction processing, and rigorous input validation. Focused on core logic, thread safety, and data handling.',
             techStack: ['Java', 'Swing', 'MySQL', 'JDBC'],
