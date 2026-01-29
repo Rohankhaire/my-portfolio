@@ -1,0 +1,1 @@
+src/components/Navbar.tsx(36,39): error TS7031: Binding element 'isActive' implicitly has an 'any' type.
