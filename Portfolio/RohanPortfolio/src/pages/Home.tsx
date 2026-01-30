@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { ArrowRight, FileText, Terminal, Cpu } from 'lucide-react';
+import { ArrowRight, Terminal, Cpu, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 import profileImg from '../assets/profile.jpg';
 import CyberCard from '../components/CyberCard';
@@ -84,15 +84,13 @@ const Home: React.FC = () => {
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </NavLink>
 
-                    <a
-                        href="/resume.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <NavLink
+                        to="/contact"
                         className="cyber-btn group flex items-center justify-center gap-2 border-white/30 text-white/70 hover:border-white hover:text-white"
                     >
-                        Access Data Log
-                        <FileText className="w-5 h-5" />
-                    </a>
+                        Contact Me
+                        <Mail className="w-5 h-5" />
+                    </NavLink>
                 </motion.div>
             </div>
 

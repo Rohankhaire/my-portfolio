@@ -1,6 +1,7 @@
 import React from 'react';
 import SectionHeader from '../components/SectionHeader';
 import ProjectCard from '../components/ProjectCard';
+import { motion } from 'framer-motion';
 
 const Projects: React.FC = () => {
     const projects = [
@@ -34,11 +35,29 @@ const Projects: React.FC = () => {
         <div className="animate-fade-in">
             <SectionHeader title="Projects" subtitle="Engineering experience and technical implementations." />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={{
+                    visible: { transition: { staggerChildren: 0.15 } }
+                }}
+                className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            >
                 {projects.map((project, index) => (
-                    <ProjectCard key={index} {...project} />
+                    <motion.div
+                        key={index}
+                        variants={{
+                            hidden: { opacity: 0, y: 20 },
+                            visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                        }}
+                        whileHover={{ scale: 1.02 }}
+                        className="h-full"
+                    >
+                        <ProjectCard {...project} />
+                    </motion.div>
                 ))}
-            </div>
+            </motion.div>
         </div>
     );
 };
