@@ -12,16 +12,22 @@ const Projects: React.FC = () => {
             githubUrl: 'https://github.com/Rohankhaire/my-portfolio'
         },
         {
-            title: 'ATM Simulator System',
-            description: 'Desktop-based Java application simulating real banking workflows. Implemented account lifecycle, transaction processing, and rigorous input validation. Focused on core logic, thread safety, and data handling.',
-            techStack: ['Java', 'Swing', 'MySQL', 'JDBC'],
-            githubUrl: 'https://github.com'
+            title: 'StudentHub',
+            description: 'Architected a RESTful backend API using Spring Boot and Hibernate ORM to manage complex course and user data. Integrated Spring Security with BCrypt hashing and JWT to protect administrative actions from unauthorized access. Built a high-interactivity frontend with Framer Motion and React Context API for seamless state management and role-based UI rendering.',
+            techStack: ['Java', 'JavaScript', 'Spring Boot', 'Hibernate', 'React', 'PostgreSQL'],
+            githubUrl: 'https://github.com/Rohankhaire/StudentHub'
         },
         {
             title: 'Employee Management System',
-            description: 'Full-stack backend system enabling structured CRUD operations. Designed RESTful APIs using Spring Boot and Hibernate with PostgreSQL persistence. Emphasized clean architecture, DTO pattern usage, and data consistency.',
-            techStack: ['Java', 'Spring Boot', 'Hibernate', 'PostgreSQL', 'REST API'],
+            description: 'Full-stack enterprise application with RESTful backend API using Spring Boot and Hibernate ORM. Implemented Spring Security with BCrypt hashing and JWT authentication for secure access control. Developed interactive React frontend with seamless state management and role-based UI rendering for efficient employee data management.',
+            techStack: ['Java', 'JavaScript', 'Spring Boot', 'Hibernate', 'React', 'PostgreSQL'],
             githubUrl: 'https://github.com'
+        },
+        {
+            title: 'BankSimulator',
+            description: 'Developed a Bank Simulator System (Desktop-based Application) using Core Java (Swing/AWT) and PostgreSQL for backend data management. Implemented key banking operations such as account creation, deposit, withdrawal, mini statement, and PIN change. Designed an intuitive GUI interface to simulate real ATM user interactions and transaction flows. Ensured data validation, error handling, and secure database connectivity for reliable performance.',
+            techStack: ['Core Java', 'Swing', 'AWT', 'PostgreSQL', 'JDBC'],
+            githubUrl: 'https://github.com/Rohankhaire/BankSimulator'
         },
         {
             title: 'Share My Ride',

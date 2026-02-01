@@ -84,7 +84,7 @@ const Contact: React.FC = () => {
                                 id="name"
                                 name="name"
                                 required
-                                className="w-full bg-cyber-dark/50 border border-cyber-cyan/30 p-3 focus:outline-none focus:border-cyber-cyan focus:shadow-[0_0_10px_rgba(0,255,255,0.3)] transition-all font-mono text-white placeholder-gray-600"
+                                className="w-full bg-cyber-dark/30 border border-cyber-cyan/30 p-3 focus:outline-none focus:border-cyber-cyan focus:shadow-[0_0_10px_rgba(0,255,255,0.3)] transition-all font-mono text-white placeholder-gray-600 backdrop-blur-sm"
                                 placeholder="ENTER_NAME"
                             />
                         </div>
@@ -95,7 +95,7 @@ const Contact: React.FC = () => {
                                 id="email"
                                 name="email"
                                 required
-                                className="w-full bg-cyber-dark/50 border border-cyber-cyan/30 p-3 focus:outline-none focus:border-cyber-cyan focus:shadow-[0_0_10px_rgba(0,255,255,0.3)] transition-all font-mono text-white placeholder-gray-600"
+                                className="w-full bg-cyber-dark/30 border border-cyber-cyan/30 p-3 focus:outline-none focus:border-cyber-cyan focus:shadow-[0_0_10px_rgba(0,255,255,0.3)] transition-all font-mono text-white placeholder-gray-600 backdrop-blur-sm"
                                 placeholder="ENTER_EMAIL"
                             />
                         </div>
@@ -106,7 +106,7 @@ const Contact: React.FC = () => {
                                 name="message"
                                 required
                                 rows={4}
-                                className="w-full bg-cyber-dark/50 border border-cyber-cyan/30 p-3 focus:outline-none focus:border-cyber-cyan focus:shadow-[0_0_10px_rgba(0,255,255,0.3)] transition-all font-mono text-white placeholder-gray-600"
+                                className="w-full bg-cyber-dark/30 border border-cyber-cyan/30 p-3 focus:outline-none focus:border-cyber-cyan focus:shadow-[0_0_10px_rgba(0,255,255,0.3)] transition-all font-mono text-white placeholder-gray-600 backdrop-blur-sm"
                                 placeholder="ENTER_MESSAGE..."
                             />
                         </div>
@@ -116,7 +116,7 @@ const Contact: React.FC = () => {
                             <div className={`flex items-center gap-2 font-mono text-xs p-3 border ${status === 'success' ? 'border-green-500/50 text-green-400 bg-green-500/5' :
                                 status === 'error' ? 'border-red-500/50 text-red-400 bg-red-500/5' :
                                     'border-cyber-cyan/30 text-cyber-cyan/50'
-                                } transition-all animate-pulse`}>
+                                } transition-all animate-pulse backdrop-blur-md`}>
                                 {status === 'loading' && <Loader2 size={16} className="animate-spin" />}
                                 {status === 'success' && <CheckCircle2 size={16} />}
                                 {status === 'error' && <AlertCircle size={16} />}
@@ -127,11 +127,11 @@ const Contact: React.FC = () => {
                         <button
                             type="submit"
                             disabled={status === 'loading'}
-                            className={`w-full cyber-btn group flex items-center justify-center gap-3 transition-all ${status === 'loading' ? 'opacity-50 cursor-not-allowed' : ''}`}
+                            className={`w-full cyber-btn group flex items-center justify-between px-6 transition-all ${status === 'loading' ? 'opacity-50 cursor-not-allowed' : ''}`}
                         >
-                            <span className="group-hover:animate-pulse">
+                            <div className="flex-1 text-center font-tech tracking-widest pl-6">
                                 {status === 'loading' ? 'SENDING...' : 'INITIATE_TRANSMISSION'}
-                            </span>
+                            </div>
                             {status === 'loading' ? (
                                 <Loader2 size={20} className="animate-spin" />
                             ) : (
