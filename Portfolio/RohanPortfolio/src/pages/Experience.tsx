@@ -2,9 +2,15 @@ import React from 'react';
 import SectionHeader from '../components/SectionHeader';
 import TimelineItem from '../components/TimelineItem';
 import { motion } from 'framer-motion';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+gsap.registerPlugin(ScrollTrigger);
 
 const Experience: React.FC = () => {
+    const containerRef = React.useRef<HTMLDivElement>(null);
+    const lineRef = React.useRef<HTMLDivElement>(null);
+
     const skills = {
         "Languages": ["Java", "SQL", "JavaScript", "TypeScript"],
         "Backend": ["Spring Boot", "Spring Security", "Hibernate", "REST APIs"],
@@ -20,12 +26,44 @@ const Experience: React.FC = () => {
         "Python Programming Fundamentals - IIT Kharagpur (June 2023)"
     ];
 
+    React.useLayoutEffect(() => {
+        const ctx = gsap.context(() => {
+            if (lineRef.current && containerRef.current) {
+                gsap.fromTo(lineRef.current,
+                    { height: "0%" },
+                    {
+                        height: "100%",
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: containerRef.current,
+                            start: "top center",
+                            end: "bottom center",
+                            scrub: 1.5,
+                        }
+                    }
+                );
+            }
+        }, containerRef);
+        return () => ctx.revert();
+    }, []);
+
     return (
         <div className="animate-fade-in space-y-16">
             {/* Experience Section */}
-            <div>
+            <div ref={containerRef} className="relative">
                 <SectionHeader title="Experience" subtitle="Professional engineering trajectory." />
-                <div className="mt-8">
+
+                <div className="mt-8 relative ml-4 md:ml-8 pl-8 border-l border-cyber-gray/30">
+                    {/* The Circuit Line */}
+                    <div
+                        ref={lineRef}
+                        className="absolute left-[-1px] top-0 w-[3px] bg-cyber-cyan shadow-[0_0_15px_#00FFFF] rounded-full"
+                    >
+                        {/* The Glowing Head of the Circuit */}
+                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-cyber-cyan rounded-full shadow-[0_0_20px_#00FFFF] blur-[2px]" />
+                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-white rounded-full" />
+                    </div>
+
                     <TimelineItem
                         year="2026"
                         title="Software Development Intern"

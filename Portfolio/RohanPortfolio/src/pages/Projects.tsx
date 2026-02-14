@@ -1,9 +1,16 @@
 import React from 'react';
 import SectionHeader from '../components/SectionHeader';
 import ProjectCard from '../components/ProjectCard';
-import { motion } from 'framer-motion';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Projects: React.FC = () => {
+    const wrapperRef = React.useRef<HTMLDivElement>(null);
+    const triggerRef = React.useRef<HTMLDivElement>(null);
+    const cardsRef = React.useRef<HTMLDivElement>(null);
+
     const projects = [
         {
             title: 'Personal Portfolio',
@@ -37,33 +44,116 @@ const Projects: React.FC = () => {
         }
     ];
 
-    return (
-        <div className="animate-fade-in">
-            <SectionHeader title="Projects" subtitle="Engineering experience and technical implementations." />
+    React.useLayoutEffect(() => {
+        const ctx = gsap.context(() => {
+            const mm = gsap.matchMedia();
 
-            <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={{
-                    visible: { transition: { staggerChildren: 0.15 } }
-                }}
-                className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            // Desktop: Horizontal Scroll + Holographic Reveal
+            mm.add("(min-width: 768px)", () => {
+                const totalWidth = cardsRef.current!.scrollWidth;
+                const windowWidth = window.innerWidth;
+                const scrollLength = totalWidth - windowWidth;
+
+                // 1. Holographic "Boot Up" Reveal
+                gsap.fromTo(".project-card-item",
+                    {
+                        opacity: 0,
+                        rotateX: -45,
+                        y: 100,
+                        scale: 0.8,
+                        z: -100 // push back in 3D space
+                    },
+                    {
+                        opacity: 1,
+                        rotateX: 0,
+                        y: 0,
+                        scale: 1,
+                        z: 0,
+                        duration: 1,
+                        stagger: 0.1,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: triggerRef.current,
+                            start: "top 70%", // Start animation when section is in view
+                            toggleActions: "play none none reverse"
+                        }
+                    }
+                );
+
+                // 2. Horizontal Scroll
+                gsap.to(cardsRef.current, {
+                    x: -scrollLength,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: triggerRef.current,
+                        pin: true,
+                        scrub: 1.5,
+                        snap: {
+                            snapTo: 1 / (projects.length - 1),
+                            duration: { min: 0.2, max: 0.8 },
+                            delay: 0.1,
+                            ease: "power2.inOut"
+                        },
+                        end: () => "+=" + Math.max(3000, totalWidth),
+                        invalidateOnRefresh: true,
+                        anticipatePin: 1
+                    }
+                });
+            });
+
+            // Mobile: Vertical Fade In
+            mm.add("(max-width: 767px)", () => {
+                gsap.utils.toArray<HTMLElement>('.project-card-item').forEach((card, i) => {
+                    gsap.fromTo(card,
+                        { opacity: 0, y: 50 },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            duration: 0.8,
+                            scrollTrigger: {
+                                trigger: card,
+                                start: "top 85%",
+                                toggleActions: "play none none reverse"
+                            }
+                        }
+                    );
+                });
+            });
+        }, wrapperRef);
+
+        return () => ctx.revert();
+    }, []);
+
+    return (
+        <div ref={wrapperRef} className="animate-fade-in w-full overflow-x-hidden">
+            <SectionHeader title="Projects" subtitle="Engineering experience and technical implementations." className="px-4 md:px-12 pt-8" />
+
+            {/* 
+              Desktop: horizontal scrolling container pinned by ScrollTrigger 
+              Mobile: standard vertical flex container
+            */}
+            <div
+                ref={triggerRef}
+                className="w-full h-auto md:h-screen flex items-start md:items-center overflow-hidden py-8 md:py-0 perspective-[1000px]"
             >
-                {projects.map((project, index) => (
-                    <motion.div
-                        key={index}
-                        variants={{
-                            hidden: { opacity: 0, y: 20 },
-                            visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-                        }}
-                        whileHover={{ scale: 1.02 }}
-                        className="h-full"
-                    >
-                        <ProjectCard {...project} />
-                    </motion.div>
-                ))}
-            </motion.div>
+                <div
+                    ref={cardsRef}
+                    className="flex flex-col md:flex-row gap-8 px-4 md:px-12 w-full md:w-auto transform-style-3d"
+                >
+                    {projects.map((project, index) => (
+                        <div
+                            key={index}
+                            className="project-card-item w-full md:w-[600px] flex-shrink-0"
+                        >
+                            <ProjectCard {...project} />
+                        </div>
+                    ))}
+                    {/* Spacer for right padding on desktop horizontal scroll */}
+                    <div className="hidden md:block w-12 flex-shrink-0" />
+                </div>
+            </div>
+
+            <div className="md:hidden h-24" /> {/* Bottom spacer for mobile */}
         </div>
     );
 };

@@ -4,6 +4,7 @@ import { ArrowRight, Terminal, Cpu, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 import profileImg from '../assets/profile.jpg';
 import CyberCard from '../components/CyberCard';
+import TerminalTyper from '../components/TerminalTyper';
 
 const Home: React.FC = () => {
     return (
@@ -47,10 +48,20 @@ const Home: React.FC = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.4 }}
-                    className="text-2xl md:text-3xl text-cyber-cyan font-tech font-medium mb-6 tracking-wide flex items-center gap-3"
+                    className="text-2xl md:text-3xl text-cyber-cyan font-tech font-medium mb-6 tracking-wide flex items-center gap-3 min-h-[40px]"
                 >
                     <span className="w-8 h-px bg-cyber-cyan/50"></span>
-                    SOFTWARE ENGINEER
+                    <TerminalTyper
+                        words={[
+                            "SOFTWARE ENGINEER",
+                            "FULL STACK DEVELOPER",
+                            "JAVA EXPERT",
+                            "REACT NATIVE DEV"
+                        ]}
+                        typingSpeed={80}
+                        deletingSpeed={40}
+                        pauseTime={2000}
+                    />
                     <span className="w-8 h-px bg-cyber-cyan/50"></span>
                 </motion.h2>
 
