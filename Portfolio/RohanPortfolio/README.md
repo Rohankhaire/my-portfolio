@@ -1,32 +1,53 @@
-# Rohan's Portfolio 🚀
+# ⚡ Rohan's Cyberpunk Portfolio
+    
+> *A high-performance, immersive web experience built with next-gen frontend technologies.*
 
-A futuristic, cyberpunk-themed portfolio website built with modern web technologies. This project showcases my skills, experience, and projects in a unique, immersive interface.
+![Cyberpunk Theme](https://img.shields.io/badge/Theme-Cyberpunk_v2.0-00f0ff?style=for-the-badge&logo=cyberpunk&logoColor=black)
+![React](https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![GSAP](https://img.shields.io/badge/GSAP_ScrollTrigger-88CE02?style=for-the-badge&logo=greensock&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)
 
-![Cyberpunk Theme](https://img.shields.io/badge/Theme-Cyberpunk-00f0ff?style=for-the-badge&logo=cyberpunk)
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Video](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+## 🌌 Overview
 
-## ✨ Features
+This is no ordinary portfolio. It is a **fully interactive, immersive digital experience** designed to demonstrate advanced frontend engineering capabilities. Built with a "Cyberpunk" aesthetic, it features complex animations, 3D transformations, and a unique narrative user journey.
 
-- **Immersive Cyberpunk Design**: Custom boot screens, scanline effects, and dynamic cyber backgrounds.
-- **Interactive UI**: Powered by Framer Motion for smooth animations and transitions.
-- **Responsive Layout**: Fully optimized for desktop and mobile experiences.
-- **Modern Tech Stack**: Built with React 19, Vite, and Tailwind CSS.
+**Live Demo:** [https://rohankhaire.github.io/my-portfolio/](https://rohankhaire.github.io/my-portfolio/)
+
+## ✨ Key Features
+
+### 🖥️ Immersive User Interface
+- **Terminal Boot Sequence**: A realistic BIOS-style boot-up animation that "initializes" the system before access is granted.
+- **Code Typer Hero**: Dynamic text typing effect on the landing page simulating a developer's terminal.
+- **Glitch Transitions**: Custom "Cyber Shutter" page transitions that wipe the screen with digital artifacts when navigating.
+
+### ⚡ Advanced Animations
+- **"Circuit Board" Connectivity**: A glowing energy line on the *Experience* page that draws itself as you scroll, connecting your timeline.
+- **Holographic Project Cards**: 3D tilt and reveal effects on the *Projects* page using CSS perspective and GSAP transformations.
+- **Magnetic Interactions**: (Optional) Micro-interactions that respond fluidly to cursor movement.
+
+### 🛠️ Engineering Excellence
+- **Performance Optimized**: Built with Vite for instant HMR and optimized production bundles.
+- **Type Safety**: 100% TypeScript codebase for robustness.
+- **Responsive Architecture**: Fluid layouts that adapt seamlessly from Ultrawide monitors to mobile devices.
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: React, TypeScript, Vite
-- **Styling**: Tailwind CSS, PostCSS
-- **Animation**: Framer Motion
-- **Icons**: Lucide React
-- **Routing**: React Router DOM
+| Category | Technology | Usage |
+|----------|------------|-------|
+| **Core** | React 19, TypeScript | Component architecture & Type safety |
+| **Build Tool** | Vite | Blazing fast development server |
+| **Styling** | Tailwind CSS | Utility-first styling engine |
+| **Animation** | GSAP (GreenSock) | Complex timelines & ScrollTrigger effects |
+| **Micro-FX** | Framer Motion | Layout transitions & mounting animations |
+| **Routing** | React Router v6 | Client-side routing with *AnimatePresence* |
+| **Icons** | Lucide React | Modern, consistent icon set |
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-
-Make sure you have Node.js installed on your machine.
+- Node.js (v18+)
+- npm or pnpm
 
 ### Installation
 
@@ -55,24 +76,25 @@ Make sure you have Node.js installed on your machine.
 
 ```
 src/
-├── components/     # Reusable UI components (Navbar, Footer, Cyber elements)
-├── pages/          # Main application pages (Home, Experience, Projects, etc.)
-├── App.tsx         # Main application entry point with routing
-├── index.css       # Global styles and Tailwind directives
-└── main.tsx        # React root rendering
+├── components/     # Reusable UI (Navbar, BootScreen, PageTransition, etc.)
+├── pages/          # Main Views (Home, Experience, Projects)
+├── assets/         # Static assets
+├── App.tsx         # Main Layout & Routing Logic
+└── index.css       # Global Styles, Tailwind & Custom @layer components
 ```
 
-## 🚀 Deployment
+## 🚢 Deployment
 
-This project handles routing for SPA (Single Page Application) platforms.
+The project is configured for automated deployment to **GitHub Pages**.
 
-- **Vercel**: Includes `vercel.json` for proper rewrites.
-- **GitHub Pages**: Includes `gh-pages` deployment scripts.
+```bash
+# Deploy to GitHub Pages
+npm run deploy
+```
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
 
 ---
-
-*Designed and developed by Rohan Khaire.*
+*System.Identity: Rohan_Khaire // Status: ONLINE*

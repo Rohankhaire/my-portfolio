@@ -180,6 +180,24 @@ This guide provides concise explanations of all technologies used in your projec
   - Error handling
 - **Interview Point**: "Axios interceptors allowed me to attach JWT tokens to all requests automatically"
 
+### **GSAP (GreenSock Animation Platform)**
+- **What**: Industry-standard JavaScript animation library
+- **Why Used**: Complex scroll-based animations that CSS/Framer Motion can't handle
+- **Key Features**:
+  - **ScrollTrigger**: Animations triggered by scroll position (used for Horizontal Scroll Gallery)
+  - **Timeline**: Sequencing complex multi-step animations (Boot Sequence)
+  - **Performance**: High-speed animation engine optimized for 60fps
+- **Interview Point**: "I used GSAP ScrollTrigger to build the 'Circuit Board' timeline connectivity and the horizontal project gallery, which required precise scroll syncing."
+
+### **Cyberpunk Design System**
+- **What**: Custom CSS architecture / Design Language
+- **Why Used**: To create a unique, consistent brand identity
+- **Implementation**:
+  - **Variables**: CSS variables for `cyber-cyan`, `cyber-black`
+  - **Effects**: Scanlines, glitches, neon glows via Tailwind custom utilities
+  - **Typography**: `font-tech` for headers, `font-mono` for data
+- **Interview Point**: "I didn't just use a UI library; I built a custom design system with Tailwind configuration to ensure every component felt like part of a cohesive sci-fi interface."
+
 ---
 
 ## Desktop Technologies

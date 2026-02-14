@@ -731,66 +731,68 @@ ridesRef.addValueEventListener(new ValueEventListener() {
 
 ---
 
-## 5. Personal Portfolio Website
+## 5. Personal Portfolio Website (v2.0)
 
 ### 🎯 Project Overview
-High-performance, responsive portfolio website with cyberpunk aesthetic and fluid animations.
+A **standard-defying**, high-performance web experience. Unlike typical static portfolios, this project serves as a demonstration of advanced frontend engineering, featuring a "Cyberpunk" narrative, 3D interactivity, and complex state-driven animations.
 
-### 🏗️ Tech Stack
+### 🏗️ Tech Stack (Upgraded)
 
-- **React 18+** - UI library
-- **TypeScript** - Type-safe JavaScript
-- **Tailwind CSS** - Utility-first CSS framework
-- **Framer Motion** - Animation library
-- **Vite** - Build tool and dev server
-- **React Router** - Client-side routing
+- **React 19** - UI Component Architecture
+- **TypeScript** - Strict Type Safety
+- **GSAP (GreenSock)** - Complex Timeline & Scroll Animations
+- **Framer Motion** - Layout Transitions & Micro-interactions
+- **Tailwind CSS** - Utility-First Styling Engine
+- **Vite** - High-Performance Build Tool
 
-### 📊 Architecture
+### 📊 Architecture & Key Flows
 
-```
-┌─────────────────────────────────────┐
-│  App Component                      │
-│  ┌───────────────────────────────┐  │
-│  │ Router Configuration          │  │
-│  │ - Home                        │  │
-│  │ - About                       │  │
-│  │ - Experience                  │  │
-│  │ - Projects                    │  │
-│  │ - Contact                     │  │
-│  └───────────┬───────────────────┘  │
-└──────────────┼───────────────────────┘
-               │
-               ▼
-┌─────────────────────────────────────┐
-│  Page Components                    │
-│  ┌───────────────────────────────┐  │
-│  │ Framer Motion Animations      │  │
-│  │ - Fade In                     │  │
-│  │ - Slide In                    │  │
-│  │ - Stagger Children            │  │
-│  └───────────────────────────────┘  │
-│  ┌───────────────────────────────┐  │
-│  │ Reusable Components           │  │
-│  │ - SectionHeader               │  │
-│  │ - ProjectCard                 │  │
-│  │ - ExperienceCard              │  │
-│  │ - CyberCard                   │  │
-│  └───────────────────────────────┘  │
-└─────────────────────────────────────┘
-```
+#### **1. The "System Boot" Sequence**
+*   **Concept**: The user isn't just "loading a page"; they are "logging into a secure terminal".
+*   **Flow**:
+    1.  `BootScreen.tsx` mounts on first load.
+    2.  `useEffect` triggers a sequence of text lines (`> INITIALIZING KERNEL...`).
+    3.  Once the sequence completes, the "System Enter" card reveals.
+    4.  User interaction finishes the boot, setting `isSystemReady` state to `true` in `App.tsx`.
+    5.  Main `Navbar` and `Routes` animate in.
 
-### 🎨 Key Features
+#### **2. "Circuit Board" Experience Timeline**
+*   **Challenge**: Visualizing career progression in a connected way.
+*   **Solution**: A GSAP ScrollTrigger animation.
+*   **Implementation**:
+    *   A simulated SV/Div line tracks the user's scroll position.
+    *   As the user scrolls down `Experience.tsx`, the line "draws" itself, connecting one role to the next.
+    *   This required precise calculation of container heights and scroll offsets using GSAP.
 
-1. **Cyberpunk Aesthetic**: Custom color palette, neon effects, glitch animations
-2. **Responsive Design**: Mobile-first approach, optimized for all screen sizes
-3. **Performance**: Lazy loading, code splitting, optimized assets
-4. **Animations**: Smooth transitions using Framer Motion
-5. **SEO Optimized**: Meta tags, semantic HTML, proper heading structure
+#### **3. Horizontal 3D Project Gallery**
+*   **Challenge**: Displaying multiple projects without an endless vertical scroll.
+*   **Solution**: A pinned horizontal scroll section with 3D reveal.
+*   **Implementation**:
+    *   **Desktop**: The viewport is "pinned" (locked) using `ScrollTrigger`.
+    *   Vertical scroll input is translated into **horizontal movement** (`x` transform).
+    *   **Holographic Reveal**: Before scrolling starts, cards animate in with `rotateX` and `opacity` to simulate a 3D hologram projection.
+    *   **Mobile**: Falls back to a standard vertical stack for usability.
+
+#### **4. "Glitch" Page Transitions**
+*   **Concept**: Navigation should feel like switching screens on a futuristic display.
+*   **Implementation**:
+    *   Custom `PageTransition` component wraps every route.
+    *   On exit, 5 vertical "shutter" bars slide down to cover the screen.
+    *   Once covered, the route changes.
+    *   On enter, the bars slide up, revealing the new page.
+
+### 🎨 Design System: "Cyberpunk v2"
+*   **Colors**: Neon Cyan (`#00f0ff`) on Deep Black (`#050505`).
+*   **Typography**: `Orbitron` (Tech headers) + `JetBrains Mono` (Data/Code).
+*   **Visuals**: Scanlines, CRT flicker effects, glowing borders, glassmorphism.
 
 ### 🎤 Interview Talking Points
 
-**"Tell me about your portfolio":**
-> "I built my portfolio as a high-performance React application using TypeScript for type safety and Vite for fast build times. I chose a cyberpunk aesthetic to stand out and implemented fluid animations using Framer Motion. The site is fully responsive and mobile-optimized, with lazy loading and code splitting for optimal performance. I deployed it to GitHub Pages with automated CI/CD. This project showcases my frontend development skills and attention to design details."
+**"Why did you use GSAP instead of just CSS?"**
+> "While CSS is great for simple transitions, I needed precise control over scroll-linked animations for the Experience connectivity line. GSAP's `ScrollTrigger` allows me to scrub animations based on scroll position, which simply isn't possible with pure CSS. It also lets me sequence complex multi-stage animations (like the Boot sequence) much more visibly than `setTimeout` chains."
+
+**"How did you handle the complex routing animations?"**
+> "I used Framer Motion's `AnimatePresence` combined with a custom `PageTransition` component. By enabling `mode='wait'`, I ensured that the 'exit' animation (the shutters closing) fully completes before the new route mounts and starts its 'enter' animation. This creates a seamless, app-like feel instead of a jarring page reload."
 
 ---
 
