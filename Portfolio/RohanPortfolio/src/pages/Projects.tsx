@@ -103,7 +103,8 @@ const Projects: React.FC = () => {
 
             // Mobile: Vertical Fade In
             mm.add("(max-width: 767px)", () => {
-                gsap.utils.toArray<HTMLElement>('.project-card-item').forEach((card, i) => {
+                const cards = gsap.utils.toArray('.project-card-item');
+                cards.forEach((card: any) => {
                     gsap.fromTo(card,
                         { opacity: 0, y: 50 },
                         {

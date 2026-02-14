@@ -12,27 +12,8 @@ const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
     // Cyber scanline/wipe effect
     // We use a fixed overlay that animates IN on exit, and OUT on enter.
 
-    // Variants for the shutter bars
-    const shutterVariants = {
-        initial: { scaleY: 1 },
-        animate: {
-            scaleY: 0,
-            transition: {
-                duration: 0.8,
-                ease: [0.22, 1, 0.36, 1], // Custom bezier for mechanical feel
-                staggerChildren: 0.1
-            }
-        },
-        exit: {
-            scaleY: 1,
-            transition: {
-                duration: 0.5,
-                ease: [0.22, 1, 0.36, 1],
-                staggerChildren: 0.05,
-                staggerDirection: -1
-            }
-        }
-    };
+    // Cyber scanline/wipe effect
+    // We use a fixed overlay that animates IN on exit, and OUT on enter.
 
     const contentVariants = {
         initial: { opacity: 0, y: 20 },
